@@ -1,4 +1,4 @@
-package edu.trinity.videoquizreact.controllers
+package controllers
 
 import javax.inject._
 
@@ -11,5 +11,12 @@ class Application @Inject()(cc: ControllerComponents) extends AbstractController
   def index = Action {
     Ok(views.html.index(SharedMessages.itWorks))
   }
+
+  def tempPage = Action {
+    //Ok("<p>This is a page</p>").as("text/html")
+    Ok(views.html.tempPage())
+  }
+
+  def temps(month: int, year:Int) = TODO
 
 }

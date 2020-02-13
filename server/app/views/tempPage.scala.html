@@ -1,0 +1,17 @@
+@(years: List[Int])
+
+@main("Historical Temperatures"){
+    <p>Temps go here</p>
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    Year
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            @for(year <- years)
+        </tbody>
+    </table>
+}
