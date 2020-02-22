@@ -1,17 +1,21 @@
-@(years: List[Int])
+@(years: Seq[Int])(implicit request: RequestHeader)
 
-@main("Historical Temperatures"){
-    <p>Temps go here</p>
-    <table>
-        <thead>
-            <tr>
-                <td>
-                    Year
-                </td>
-            </tr>
-        </thead>
-        <tbody>
-            @for(year <- years)
-        </tbody>
-    </table>
+@main("Historical Temperatures") {
+  <p>What month do you want to look at?</p>
+  <form method="GET" action="temps">
+    <input type="text" name="month" id="month" placeholder="Month" />
+    <br>
+    <input type="text" name="year" id="year" placeholder="Year" />
+    <br>
+    <input type="submit" />
+  </form>
+  <form method="POST" action="@routes.TempController.tempsPost">
+    @helper.CSRF.formField
+    <input type="text" name="month" placeholder="Month">
+    <br>
+    <input type="text" name="year" placeholder="Year">
+    <br>
+    <input type="submit">
+  </form>
+  <script src="@routes.Assets.versioned("javascript/test.js")"></script>
 }

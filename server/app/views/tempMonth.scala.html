@@ -1,0 +1,18 @@
+@(month: Int, year: Int, data: Seq[TempData])
+
+@main(s"Temperature for $month/$year") {
+<h2>Temperature for @month/@year</h2>
+
+<table>
+  <thead><tr>
+    <td>Day</td><td>Precipitation</td><td>Tave</td><td>Tmax</td><td>Tmin</td>
+  </tr></thead>
+  <tbody>
+    @for(td <- data) {
+      <tr>
+        <td>@td.day</td><td>@td.precip</td><td>@td.tave</td><td>@td.tmax</td><td>@td.tmin</td>
+      </tr>
+    }
+  </tbody>
+</table>
+}
