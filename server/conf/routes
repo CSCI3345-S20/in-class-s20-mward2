@@ -4,6 +4,12 @@
 
 # Home page
 GET        /                             controllers.Application.index
+# Routes for TaskList (video)
+GET        /TaskList1                    controllers.TaskList1.taskList
+GET        /productArgs                  controllers.Application.product(prodType, prodNum: Int)
+GET        /product/:prodType/:prodNum   controllers.Application.product(prodType, prodNum: Int)
+GET        /productRE/$prodType<[a-z]{2}\d\d>/:prodNum controllers.Application.product(prodType, prodNum: Int)
+
 GET        /tempPage                     controllers.Application.tempPage
 GET        /temps/:month/:year           controllers.Application.temps(month: Int, year: Int)
 
